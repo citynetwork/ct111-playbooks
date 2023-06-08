@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Delete server
+      openstack.cloud.server:
+        name: precarious_puffin
+        delete_ips: true
+        state: absent
+
+    - name: Delete router
+      openstack.cloud.router:
+        name: ansible_router
+        state: absent
+
+    - name: Delete subnet
+      openstack.cloud.subnet:
+        name: ansible_subnet
+        state: absent
+
+    - name: Delete network
+      openstack.cloud.network:
+        name: ansible_net
+        state: absent
+
+    - name: Delete keypair
+      openstack.cloud.keypair:
+        name: ansible_key
+        state: absent

@@ -1,0 +1,45 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Create server
+      openstack.cloud.server:
+        state: present
+        name: precarious_puffin
+        image: 'Ubuntu 22.04.1 Jammy Jellyfish 230124'
+        flavor: b.2c4gb
+        volume_size: 48
+        boot_from_volume: true
+        key_name: ansible_key
+        network: ansible_net
+        auto_ip: true
+        security_groups: default
+        wait: true
+      register: vm_info
+
+    - name: Add server to dynamic inventory
+      add_host:
+        groups: cleura_cloud_servers
+        name: '{{ vm_info.server.hostname }}'
+        ansible_ssh_host: '{{ vm_info.server.addresses.ansible_net[1].addr }}'
+
+- hosts: cleura_cloud_servers
+  gather_facts: true
+  remote_user: ubuntu
+  become: true
+  vars:
+    ansible_ssh_private_key_file: 'ansible_key'
+
+  tasks:
+    - name: Update repositories package cache
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Apply package upgrades
+      apt:
+        upgrade: dist
+        autoremove: true
+        force_apt_get: true
