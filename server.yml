@@ -12,6 +12,7 @@
         flavor: b.2c4gb
         volume_size: 16
         boot_from_volume: true
+        terminate_volume: true
         key_name: ansible_key
         network: ansible_net
         auto_ip: true
