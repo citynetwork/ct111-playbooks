@@ -10,7 +10,7 @@
         name: precarious_puffin
         image: 'Ubuntu 22.04.1 Jammy Jellyfish 230124'
         flavor: b.2c4gb
-        volume_size: 48
+        volume_size: 16
         boot_from_volume: true
         key_name: ansible_key
         network: ansible_net
