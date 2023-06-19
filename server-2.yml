@@ -44,3 +44,13 @@
         upgrade: dist
         autoremove: true
         force_apt_get: true
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Progress Check -- Server packages upgraded
+      file:
+        path: ~/.prchk_server_packages_upgraded
+        state: directory

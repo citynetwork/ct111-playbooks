@@ -53,3 +53,13 @@
     - name: Initiate system reboot
       reboot:
       when: reboot_required_file.stat.exists
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Progress Check -- Server reboot check done
+      file:
+        path: ~/.prchk_server_reboot_check_done
+        state: directory
