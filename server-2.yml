@@ -8,7 +8,7 @@
       openstack.cloud.server:
         state: present
         name: precarious_puffin
-        image: 'Ubuntu 22.04.1 Jammy Jellyfish 230124'
+        image: 'Ubuntu 22.04 Jammy Jellyfish x86_64'
         flavor: b.2c4gb
         volume_size: 16
         boot_from_volume: true
