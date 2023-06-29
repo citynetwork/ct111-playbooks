@@ -18,8 +18,3 @@
         auto_ip: true
         security_groups: default
         wait: true
-
-    - name: Progress Check -- Server created
-      file:
-        path: ~/.prchk_server_created
-        state: directory

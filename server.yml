@@ -64,13 +64,3 @@
         name: nginx
         state: started
         enabled: true
-
-- hosts: localhost
-  connection: local
-  gather_facts: false
-
-  tasks:
-    - name: Progress Check -- Service installed and activated
-      file:
-        path: ~/.prchk_service_installed_and_activated
-        state: directory

@@ -14,8 +14,3 @@
         name: ansible_key
         public_key_file: ansible_key.pub
         state: present
-
-    - name: Progress Check -- Public key uploaded
-      file:
-        path: ~/.prchk_public_key_uploaded
-        state: directory
