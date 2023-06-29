@@ -29,8 +29,3 @@
           - net: ansible_net
             subnet: ansible_subnet
             portip: 10.254.254.254
-
-    - name: Progress Check -- Networking setup complete
-      file:
-        path: ~/.prchk_networking_setup_complete
-        state: directory

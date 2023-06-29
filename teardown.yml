@@ -29,16 +29,3 @@
       openstack.cloud.keypair:
         name: ansible_key
         state: absent
-
-    - name: Remove checkpoints
-      file:
-        path: '{{ item }}'
-        state: absent
-      with_items:
-        - '~/.prchk_service_installed_and_activated'
-        - '~/.prchk_server_reboot_check_done'
-        - '~/.prchk_server_packages_upgraded'
-        - '~/.prchk_server_created'
-        - '~/.prchk_ingress_rules_added'
-        - '~/.prchk_networking_setup_complete'
-        - '~/.prchk_public_key_uploaded'

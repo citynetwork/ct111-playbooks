@@ -45,8 +45,3 @@
       with_items:
         - 22
         - 80
-
-    - name: Progress Check -- Ingress rules added
-      file:
-        path: ~/.prchk_ingress_rules_added
-        state: directory
